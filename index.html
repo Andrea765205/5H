@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettera agli studenti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lettera ai miei studenti</h1>
+    <p id="lettera">
+        Cari studenti,<br>
+        vorrei esprimere il mio disappunto per il continuo brusio durante le ore della mia lezione. 
+        Questo comportamento non solo disturba me, ma impedisce anche ai vostri compagni di concentrarsi. <br>
+        Vi invito a riflettere sul rispetto che è necessario mantenere in classe per creare un ambiente 
+        favorevole all'apprendimento. <br>
+        Confido nella vostra collaborazione e maturità per migliorare questa situazione.
+    </p>
+    <button onclick="evidenzia()">Evidenzia punti chiave</button>
+
+    <script>
+        function evidenzia() {
+            const lettera = document.getElementById('lettera');
+            const paroleImportanti = ["brusio", "rispetto", "maturità"];
+            let testo = lettera.innerHTML;
+
+            paroleImportanti.forEach(parola => {
+                const regex = new RegExp(`(${parola})`, 'gi');
+                testo = testo.replace(regex, '<span class="highlight">$1</span>');
+            });
+
+            lettera.innerHTML = testo;
+        }
+    </script>
+</body>
+</html>
