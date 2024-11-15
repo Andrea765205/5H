@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettera di scuse agli studenti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lettera di scuse</h1>
+    <p id="lettera">
+        Cari studenti,<br>
+        mi scuso sinceramente per qualsiasi incomprensione o atteggiamento che possa aver creato disagio durante le mie lezioni. 
+        Il mio intento è sempre stato quello di supportarvi e aiutarvi a raggiungere il vostro pieno potenziale. <br>
+        Spero che possiate accettare le mie scuse e collaborare insieme per un ambiente più sereno e produttivo. 
+        Apprezzo il vostro impegno e il vostro continuo desiderio di apprendere.
+    </p>
+    <button onclick="evidenzia()">Evidenzia punti chiave</button>
+
+    <script>
+        function evidenzia() {
+            const lettera = document.getElementById('lettera');
+            const paroleImportanti = ["supportarvi", "scuse", "impegno"];
+            let testo = lettera.innerText;
+
+            paroleImportanti.forEach(parola => {
+                const regex = new RegExp(`(${parola})`, 'gi');
+                testo = testo.replace(regex, '<span class="highlight">$1</span>');
+            });
+
+            lettera.innerHTML = testo;
+        }
+    </script>
+</body>
+</html>
